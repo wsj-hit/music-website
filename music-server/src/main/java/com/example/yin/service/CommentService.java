@@ -10,12 +10,13 @@ public interface CommentService {
 
     boolean updateCommentMsg(Comment comment);
 
-    boolean deleteComment(Integer id);
+    boolean deleteComment(Long id);
 
     List<Comment> allComment();
 
-    List<Comment> commentOfSongId(Integer songId);
+    List<Comment> commentOfSongId(Long songId);
 
-    List<Comment> commentOfSongListId(Integer songListId);
+    List<Comment> commentOfSongListId(Long songListId);
 
+    void thumbUp(Long id);
 }

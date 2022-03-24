@@ -7,13 +7,13 @@ import java.util.List;
 
 @Repository
 public interface CommentMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Comment record);
 
     int insertSelective(Comment record);
 
-    Comment selectByPrimaryKey(Integer id);
+    Comment selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(Comment record);
 
@@ -21,11 +21,11 @@ public interface CommentMapper {
 
     int updateCommentMsg(Comment record);
 
-    int deleteComment(Integer id);
+    int deleteComment(Long id);
 
     List<Comment> allComment();
 
-    List<Comment> commentOfSongId(Integer songId);
+    List<Comment> commentOfSongId(Long songId);
 
-    List<Comment> commentOfSongListId(Integer songListId);
+    List<Comment> commentOfSongListId(Long songListId);
 }

@@ -26,7 +26,7 @@ public interface ConsumerMapper {
 
     int updateByPrimaryKey(Consumer record);
 
-    int verifyPassword(String username, String password);
+    int verifyPassword(@Param("username") String username, @Param("password") String password);
 
     int existUsername(String username);
 

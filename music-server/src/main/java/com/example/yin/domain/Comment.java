@@ -2,16 +2,20 @@ package com.example.yin.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class Comment {
-    private Integer id;
+    @Id
+    private Long id;
 
-    private Integer userId;
+    private Long userId;
 
-    private Integer songId;
+    private Long songId;
 
-    private Integer songListId;
+    private Long songListId;
 
     private String content;
 
@@ -19,37 +23,37 @@ public class Comment {
 
     private Byte type;
 
-    private Integer up;
+    private Long up;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public Integer getSongId() {
+    public Long getSongId() {
         return songId;
     }
 
-    public void setSongId(Integer songId) {
+    public void setSongId(Long songId) {
         this.songId = songId;
     }
 
-    public Integer getSongListId() {
+    public Long getSongListId() {
         return songListId;
     }
 
-    public void setSongListId(Integer songListId) {
+    public void setSongListId(Long songListId) {
         this.songListId = songListId;
     }
 
@@ -77,11 +81,11 @@ public class Comment {
         this.type = type;
     }
 
-    public Integer getUp() {
+    public Long getUp() {
         return up;
     }
 
-    public void setUp(Integer up) {
+    public void setUp(Long up) {
         this.up = up;
     }
 
