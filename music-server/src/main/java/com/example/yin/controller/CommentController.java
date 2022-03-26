@@ -17,13 +17,14 @@ import java.util.Date;
 
 @RestController
 @Api(value = "评论")
+@RequestMapping("/comment")
 public class CommentController {
     @Autowired
     private CommentServiceImpl commentService;
 
     //  提交评论
     @ResponseBody
-    @RequestMapping(value = "/comment/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public Object addComment(HttpServletRequest req) {
 
         JSONObject jsonObject = new JSONObject();
@@ -56,20 +57,20 @@ public class CommentController {
     }
 
     //    获取所有评论列表
-    @RequestMapping(value = "/comment", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public Object allComment() {
         return commentService.allComment();
     }
 
     //    获得指定歌曲ID的评论列表
-    @RequestMapping(value = "/comment/song/detail", method = RequestMethod.GET)
+    @RequestMapping(value = "/song/detail", method = RequestMethod.GET)
     public Object commentOfSongId(HttpServletRequest req) {
         String songId = req.getParameter("songId");
         return commentService.commentOfSongId(Long.parseLong(songId));
     }
 
     //    获得指定歌单ID的评论列表
-    @RequestMapping(value = "/comment/songList/detail", method = RequestMethod.GET)
+    @RequestMapping(value = "/songList/detail", method = RequestMethod.GET)
     public Object commentOfSongListId(HttpServletRequest req) {
         String songListId = req.getParameter("songListId");
         return commentService.commentOfSongListId(Long.parseLong(songListId));
@@ -77,7 +78,7 @@ public class CommentController {
 
     //    点赞
     @ResponseBody
-    @RequestMapping(value = "/comment/like", method = RequestMethod.POST)
+    @RequestMapping(value = "/like", method = RequestMethod.POST)
     @ApiOperation(value = "点赞")
     public Result<?> commentOfLike(Long id) {
         commentService.thumbUp(id);
@@ -85,7 +86,7 @@ public class CommentController {
     }
 
     //    删除评论
-    @RequestMapping(value = "/comment/delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public Object deleteComment(HttpServletRequest req) {
         String id = req.getParameter("id");
         return commentService.deleteComment(Long.parseLong(id));
@@ -93,7 +94,7 @@ public class CommentController {
 
     //    更新评论
     @ResponseBody
-    @RequestMapping(value = "/comment/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     public Object updateCommentMsg(HttpServletRequest req) {
         JSONObject jsonObject = new JSONObject();
         String id = req.getParameter("id").trim();

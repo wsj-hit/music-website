@@ -1,12 +1,14 @@
 package com.example.yin.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
+@DynamicUpdate
 public class Comment {
     @Id
     private Long id;

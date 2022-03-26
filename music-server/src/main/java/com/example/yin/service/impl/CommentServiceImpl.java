@@ -53,12 +53,14 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-//    @Transactional
+    @Transactional
     public void thumbUp(Long id) {
 //        Comment comment = commentRepository.getById(id);
-        Comment comment = commentRepository.findById(id).orElseThrow(() -> new RuntimeException("no comment founded"));
-        comment.setUp(comment.getUp() + 1);
-        // 自动更新
+//        Comment comment = commentRepository.findById(id).orElseThrow(() -> new RuntimeException("no comment founded"));
+//        不能并发执行
+//        comment.setUp(comment.getUp() + 1);
+//        在同个事务会自动更新 不开开启事务 不自动更新
 //        commentRepository.save(comment);
+        commentRepository.increaseUp(id,1);
     }
 }
