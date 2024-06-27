@@ -5,8 +5,6 @@ pipeline {
             steps {
                 echo 'Hello world!'
             }
-        }
-        stage('Build Deploy Code') {
             when {
                 branch 'develop'
             }
