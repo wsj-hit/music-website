@@ -3,20 +3,16 @@ pipeline {
     stages {
         stage('Stage 1') {
             steps {
-               echo 'Hello world!'
+                script {
+                    if (env.BRANCH_NAME == 'develop') {
+                        echo 'develop'
+                    } else if (env.BRANCH_NAME == 'master') {
+                        echo 'master'
+                    } else {
+                        echo 'Hello world!'
+                    }
+                }
             }
-            when {
-               branch 'develop'
-            }
-            steps {
-               echo "develop"
-            }
-            when {
-                branch 'master'
-            }
-            steps {
-              echo "master"
-           }
         }
     }
 }
