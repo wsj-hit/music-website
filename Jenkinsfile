@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Stage 1') {
             steps {
-                echo 'Hello world!'
+               echo 'Hello world!'
             }
             when {
-                branch 'develop'
+               branch 'develop'
             }
             steps {
-                echp "develop"
+               echo "develop"
             }
             when {
                 branch 'master'
