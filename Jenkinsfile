@@ -1,71 +1,24 @@
 pipeline {
-
-    agent {
-        node {
-            label 'master'
-        }
-    }
-
-    options {
-        buildDiscarder logRotator(
-                    daysToKeepStr: '16',
-                    numToKeepStr: '10'
-            )
-    }
-
+    agent any
     stages {
-
-        stage('Cleanup Workspace') {
+        stage('Stage 1') {
             steps {
-                cleanWs()
-                sh """
-                echo "Cleaned Up Workspace For Project"
-                """
+                echo 'Hello world!'
             }
         }
-
-        stage(' Unit Testing') {
-            steps {
-                sh """
-                echo "Running Unit Tests"
-                """
-            }
-        }
-
-        stage('Code Analysis') {
-            steps {
-                sh """
-                echo "Running Code Analysis"
-                """
-            }
-        }
-
         stage('Build Deploy Code') {
             when {
                 branch 'develop'
             }
             steps {
-                sh """
-                echo "Building Artifact"
-                """
-
-                sh """
-                echo "Deploying Code"
-                """
+                echp "develop"
             }
             when {
                 branch 'master'
             }
             steps {
-              sh """
-              echo "Building Artifact"
-              """
-
-              sh """
-              echo "Deploying Code"
-              """
+              echo "master"
            }
         }
-
     }
 }
